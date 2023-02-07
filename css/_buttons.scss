@@ -1,0 +1,17 @@
+%btn {
+    padding:10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.btn-primary{
+    @extend %btn;
+    background-color: orange;
+}
+
+.btn-secondary {
+    @extend %btn;
+background-color:lighten($primary-color,10%);
+//background-color:darken($primary-color,10%);
+}

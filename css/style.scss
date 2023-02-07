@@ -1,0 +1,136 @@
+@import 'vars';
+@import 'global';
+@import 'buttons';
+//we name it with _ to prevent compiler from compiling file
+
+%fontawesom {
+    position: absolute;
+    font-size: 50px;
+    transform: rotate(-45deg);
+}
+
+.container {
+    background-color: $primary-color;
+    color: heading-color($primary-color); //check _vars file
+    font-family: $body-font-family;
+
+    nav {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        position: relative;
+        border: 1px solid green;
+
+        i {
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            gap: 25px;
+
+        }
+
+        a {
+            &:hover {
+                //here execute when hove only in a inside nav
+                color: $link-color-hover;
+            }
+        }
+    }
+
+    .maincontent {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        img {
+            width: 100%;
+        }
+
+        .content {
+            position: relative;
+
+            h2 {
+                margin-bottom: 15px;
+            }
+
+            p {
+                line-height: 1.5;
+            }
+
+            .fa-angle-right {
+                right: -10px;
+                top: -15px;
+                @extend %fontawesom;
+            }
+
+            .fa-angle-left {
+                left: -10px;
+                top: 100%;
+                @extend %fontawesom;
+            }
+
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    body {
+        background-color: violet;
+    }
+}
+
+@media (max-width: 767px) {
+    .maincontent {
+        font-size: 10px;
+
+        i {
+            display: none;
+
+        }
+
+        a {
+            padding: 5px;
+        }
+    }
+
+    img {
+        display: none;
+    }
+
+    body {
+        background-color: red;
+    }
+
+    .container {
+        nav {
+            ul {
+                display: none;
+            }
+
+            i {
+                display: block;
+                
+            }
+
+            ul {
+                display: none;
+                flex-direction: column;
+                top: 100%;
+                position: absolute;
+                right: 0;
+            }
+
+
+        }
+    }
+}

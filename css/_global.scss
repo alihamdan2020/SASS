@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color: $body-bg-color;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    position: relative;
+
+    &:hover{
+        //text-decoration: underline;
+        //this mean in all a in page,when you hover execute the css
+    }
+}
