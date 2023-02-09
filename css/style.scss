@@ -8,11 +8,14 @@
     font-size: 50px;
     transform: rotate(-45deg);
 }
-
+body{
+    height:1000px;
+}
 .container {
     background-color: $primary-color;
     color: heading-color($primary-color); //check _vars file
     font-family: $body-font-family;
+    
 
     nav {
         width: 80%;
@@ -22,7 +25,9 @@
         align-items: center;
         height: 60px;
         position: relative;
-        border: 1px solid green;
+        border: 0px solid green;
+        box-shadow: 0px 2px 5px 0px black;
+        padding-left:50px;
 
         i {
             display: none;
@@ -36,10 +41,27 @@
         }
 
         a {
+            @include testClass($padding,$link-color,$generalDecoration);
             &:hover {
                 //here execute when hove only in a inside nav
                 color: $link-color-hover;
             }
+        }
+        .colors {
+            span{
+                display: inline-block;
+                width:30px;
+                height:30px;
+                border-radius: 50%;
+                margin:20px;
+                cursor: pointer;;
+                &:nth-child(1){
+                    background-color: red;
+                }
+                &:nth-child(2){
+                    background-color: yellow;
+                }
+                }
         }
     }
 
@@ -80,57 +102,94 @@
 
         }
     }
-}
 
-
-@media (max-width: 992px) {
-    body {
-        background-color: violet;
-    }
-}
-
-@media (max-width: 767px) {
-    .maincontent {
-        font-size: 10px;
-
-        i {
-            display: none;
-
+    .testTheme {
+        display: flex;
+        align-items: center;
+        height:200px;
+        justify-content: center;
+        gap:40px;
+        @if($them=='light'){
+            background-color: aqua;
         }
-
-        a {
-            padding: 5px;
+        
+        @else{
+            background-color: red;
         }
-    }
-
-    img {
-        display: none;
-    }
-
-    body {
-        background-color: red;
-    }
-
-    .container {
-        nav {
-            ul {
-                display: none;
-            }
-
-            i {
-                display: block;
-                
-            }
-
-            ul {
-                display: none;
-                flex-direction: column;
-                top: 100%;
+        
+        .card {
+            display: flex;
+            flex-direction: column;
+            border:if($border,0px solid white,null);
+            box-shadow: 0px 1px 5px 0px black;
+            border-radius:if($border,$border-radius,null);
+            justify-content: center;
+            align-items: center;
+            color:white;
+            position: relative;
+            &:after{
+                border-radius:if($border,$border-radius,null);
                 position: absolute;
-                right: 0;
+                content:"";
+                width:0;
+                left:0;
+                top:0;
+                height:100%;
+                background-color: rgba($color: #000000, $alpha: 0.5);
+                transition: 0.5s;
+            }
+            &:hover:after{
+                width:100%;
             }
 
-
+            & p,
+            & h2{
+            margin:10px
+            }
         }
     }
 }
+
+//i create @medium as normal cc, the @content mean what do you want to do in ths mixin, i write the content in real time when i call the mixin//
+@mixin breakpoints ($points){
+    @if( $points==mobile)
+    {
+        @media (max-width:767px)
+        {@content;}
+    }
+    @else{
+        @if($points==small)
+        {
+            @media (min-width:768px) and (max-width:991px)
+            {@content;}
+        }
+        @else{
+            @if($points==medium)
+            {
+                @media (min-width:992px) and (max-width:1199px)
+                {@content;}
+            }
+            @else
+            {
+                @if($points==large)
+                {
+                    @media (min-width:1200px)
+                {@content;}
+                }
+            }
+        }
+    }
+
+}
+
+/*create class name it media ,then apply all properties to these class when screen width reach mobile size*/
+.media { 
+ 
+    @include breakpoints(mobile){
+    font-size:10px;
+    display: none;
+    }
+}
+
+//will not show in css file
+/*will showen in css file */

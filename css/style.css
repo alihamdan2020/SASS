@@ -1,3 +1,11 @@
+.color2 {
+  background-color: red;
+}
+
+.color3 {
+  background-color: yellow;
+}
+
 .margin_horizantal-1 {
   margin: 10px;
 }
@@ -29,7 +37,7 @@ body {
 }
 
 a {
-  color: #f4f4f4;
+  color: orange;
   text-decoration: none;
   position: relative;
 }
@@ -38,6 +46,7 @@ a {
   display: inline-block;
   border-radius: 5px;
   margin: 5px;
+  color: White;
 }
 
 .btn-primary {
@@ -54,6 +63,10 @@ a {
   transform: rotate(-45deg);
 }
 
+body {
+  height: 1000px;
+}
+
 .container {
   background-color: #6069e9;
   color: orange;
@@ -67,7 +80,9 @@ a {
   align-items: center;
   height: 60px;
   position: relative;
-  border: 1px solid green;
+  border: 0px solid green;
+  box-shadow: 0px 2px 5px 0px black;
+  padding-left: 50px;
 }
 .container nav i {
   display: none;
@@ -77,8 +92,30 @@ a {
   list-style-type: none;
   gap: 25px;
 }
+.container nav a {
+  color: orange;
+  padding: 40px;
+  text-decoration: none;
+}
 .container nav a:hover {
-  color: yellow;
+  color: #ffb733;
+}
+.container nav a:hover {
+  color: #cc8400;
+}
+.container nav .colors span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 20px;
+  cursor: pointer;
+}
+.container nav .colors span:nth-child(1) {
+  background-color: red;
+}
+.container nav .colors span:nth-child(2) {
+  background-color: yellow;
 }
 .container .maincontent {
   width: 80%;
@@ -107,39 +144,49 @@ a {
   left: -10px;
   top: 100%;
 }
+.container .testTheme {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  justify-content: center;
+  gap: 40px;
+  background-color: red;
+}
+.container .testTheme .card {
+  display: flex;
+  flex-direction: column;
+  border: 0px solid white;
+  box-shadow: 0px 1px 5px 0px black;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+.container .testTheme .card:after {
+  border-radius: 10px;
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+.container .testTheme .card:hover:after {
+  width: 100%;
+}
+.container .testTheme .card p, .container .testTheme .card h2 {
+  margin: 10px;
+}
 
-@media (max-width: 992px) {
-  body {
-    background-color: violet;
+/*create class name it media ,then apply all properties to these class when screen width reach mobile size*/
+@media (max-width: 767px) {
+  .media {
+    font-size: 10px;
+    display: none;
   }
 }
-@media (max-width: 767px) {
-  .maincontent {
-    font-size: 10px;
-  }
-  .maincontent i {
-    display: none;
-  }
-  .maincontent a {
-    padding: 5px;
-  }
-  img {
-    display: none;
-  }
-  body {
-    background-color: red;
-  }
-  .container nav ul {
-    display: none;
-  }
-  .container nav i {
-    display: block;
-  }
-  .container nav ul {
-    display: none;
-    flex-direction: column;
-    top: 100%;
-    position: absolute;
-    right: 0;
-  }
-}/*# sourceMappingURL=style.css.map */
+
+/*will showen in css file *//*# sourceMappingURL=style.css.map */

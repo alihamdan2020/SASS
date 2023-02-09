@@ -3,11 +3,12 @@
     display: inline-block;
     border-radius: 5px;
     margin: 5px;
+    color:White;
 }
 
 .btn-primary{
     @extend %btn;
-    background-color: orange;
+    background-color: $link-color;
 }
 
 .btn-secondary {

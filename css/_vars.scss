@@ -2,9 +2,23 @@ $primary-color: #6069e9;
 $body-bg-color: #f4f4f4;
 $body-font-color: #f4f4f4;
 $body-font-family: Helvetica, sans-serif;
-$link-color: $body-font-color;
-$link-color-hover:yellow;
+$link-color: orange;
+$link-color-hover:darken(orange,10);
 $link-bg-color:#F99417;
+$padding:40px;
+$generalDecoration:none;
+//note : it seems in old SASS,we can not pass a string as none,now it posiible,and we call it normally
+$them:'dark';
+$border:true;
+$border-radius:10px;
+
+
+.color2{
+    color:red;
+}
+.color3{
+    color:yellow;
+}
 
 //i will write a function to determine font color of heading according to background color 
 @function heading-color($color) {
@@ -27,6 +41,18 @@ $steps : (1,2,3,4,5);
         margin:#{$step*10}px;
     }
 }
+
+@mixin testClass($padd,$col,$dir){
+    color:$col;
+    padding:$padd;
+    text-decoration:$dir;
+
+    &:hover{
+        color:lighten($col,10);
+    }
+}
+
+
 
 
 
